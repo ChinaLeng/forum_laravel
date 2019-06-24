@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../itc/.idea/itc.iml" filepath="$PROJECT_DIR$/../itc/.idea/itc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/larabbs.iml" filepath="$PROJECT_DIR$/.idea/larabbs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../processcard/.idea/processcard.iml" filepath="$PROJECT_DIR$/../processcard/.idea/processcard.iml" />
+    </modules>
+  </component>
+</project>
