@@ -32,5 +32,7 @@ return [
         'VIEW_COMPILED_PATH',
         realpath(storage_path('framework/views'))
     ),
+    //是否关闭头像上传
+    'close_up' => 1,
 
 ];
