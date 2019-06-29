@@ -37,4 +37,11 @@ class User extends Authenticatable implements MustVerifyEmailContract
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    //取数据判断头像是否为空
+    public function getAvatarAttribute($value)
+    {
+        if (empty($value)) {
+            return 'https://iocaffcdn.phphub.org/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/600/h/600';
+        }
+    }
 }

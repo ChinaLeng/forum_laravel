@@ -24,7 +24,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="{{ !empty(Auth::user()->avatar)? Auth::user()->avatar : 'https://iocaffcdn.phphub.org/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/600/h/600'}}"
+                            <img src="{{ Auth::user()->avatar }}"
                                  class="img-responsive img-circle" width="30px" height="30px">
                             {{ Auth::user()->name }}
                         </a>

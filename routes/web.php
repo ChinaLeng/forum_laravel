@@ -44,3 +44,6 @@ Route::get('email/resend', 'Auth\VerificationController@resend')->name('verifica
 Route::get('/users/{user}', 'Index\UsersController@show')->name('users.show');
 Route::get('/users/{user}/edit', 'Index\UsersController@edit')->name('users.edit');
 Route::patch('/users/{user}', 'Index\UsersController@update')->name('users.update');
+//文章相关路由
+Route::resource('topics', 'Index\TopicsController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::get('topics/{topic}/{slug?}', 'Index\TopicsController@show')->name('topics.show');
