@@ -44,4 +44,8 @@ class User extends Authenticatable implements MustVerifyEmailContract
             return 'https://iocaffcdn.phphub.org/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/600/h/600';
         }
     }
+    public function topics()
+    {
+        return $this->hasMany(Topic::class);
+    }
 }
