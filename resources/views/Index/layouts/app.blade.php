@@ -7,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'laravel')-全新的开始</title>
+    <meta name="description" content="@yield('description', 'LaraBBS 爱好者社区')" />
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    @yield('styles')
 </head>
 <body>
 <div id="app" class="{{ route_class() }}-page">
@@ -27,6 +29,7 @@
 
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
+@yield('scripts')
 </body>
 <div id="app" class="{{ route_class() }}-page">
 </html>

@@ -48,3 +48,4 @@ Route::patch('/users/{user}', 'Index\UsersController@update')->name('users.updat
 Route::resource('topics', 'Index\TopicsController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
 Route::get('topics/{topic}/{slug?}', 'Index\TopicsController@show')->name('topics.show');
 Route::resource('categories', 'Index\CategoriesController', ['only' => ['show']]);
+Route::post('upload_image', 'Index\TopicsController@uploadImage')->name('topics.upload_image');//编辑器图片上传
