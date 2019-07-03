@@ -55,8 +55,12 @@ class TopicsController extends Controller
         $categories = Category::all();
         return view('index.topics.create_and_edit', compact('topic', 'categories'));
     }
+
     /**
-     * 帖子存储
+     * 帖子储存
+     * @param TopicRequest $request
+     * @param Topic $topic
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(TopicRequest $request, Topic $topic)
     {
@@ -65,6 +69,47 @@ class TopicsController extends Controller
         $topic->save();
 
         return redirect()->route('topics.show', $topic->id)->with('success', '帖子创建成功！');
+    }
+
+    /**
+     * 帖子编辑
+     * @param Topic $topic
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function edit(Topic $topic)
+    {
+        $this->authorize('update', $topic);
+        $categories = Category::all();
+        return view('index.topics.create_and_edit', compact('topic', 'categories'));
+    }
+
+    /**文章更新
+     * @param TopicRequest $request
+     * @param Topic $topic
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function update(TopicRequest $request, Topic $topic)
+    {
+        $this->authorize('update', $topic);
+        $topic->update($request->all());
+
+        return redirect()->route('topics.show', $topic->id)->with('success', '更新成功！');
+    }
+
+    /**
+     * 帖子删除
+     * @param Topic $topic
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function destroy(Topic $topic)
+    {
+        $this->authorize('destroy', $topic);
+        $topic->delete();
+
+        return redirect()->route('topics.index')->with('success', '成功删除！');
     }
 
     /**
