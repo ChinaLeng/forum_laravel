@@ -25,8 +25,8 @@ class TopicsController extends Controller
      */
     public function index(Request $request, Topic $topic)
     {
-        $topics = $topic->withOrder($request->order)->paginate(20);
 
+        $topics = $topic->withOrder($request->order)->paginate(20);
         return view('index.topics.index', compact('topics'));
     }
 
@@ -68,7 +68,7 @@ class TopicsController extends Controller
         $topic->user_id = Auth::id();
         $topic->save();
 
-        return redirect()->route('topics.show', $topic->id)->with('success', '帖子创建成功！');
+        return redirect()->to($topic->link())->with('success', '帖子创建成功！');
     }
 
     /**
@@ -95,7 +95,7 @@ class TopicsController extends Controller
         $this->authorize('update', $topic);
         $topic->update($request->all());
 
-        return redirect()->route('topics.show', $topic->id)->with('success', '更新成功！');
+        return redirect()->to($topic->link())->with('success', '更新成功！');
     }
 
     /**
