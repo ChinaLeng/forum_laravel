@@ -30,5 +30,6 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
          // 为 Topic 模型注册观察者
         \App\Models\Topic::observe(\App\Observers\TopicObserver::class);
+        \App\Models\Replie::observe(\App\Observers\ReplieObserver::class);
     }
 }

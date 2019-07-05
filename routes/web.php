@@ -49,3 +49,4 @@ Route::resource('topics', 'Index\TopicsController', ['only' => ['index', 'create
 Route::get('topics/{topic}/{slug?}', 'Index\TopicsController@show')->name('topics.show');
 Route::resource('categories', 'Index\CategoriesController', ['only' => ['show']]);
 Route::post('upload_image', 'Index\TopicsController@uploadImage')->name('topics.upload_image');//编辑器图片上传
+Route::resource('replies', 'Index\RepliesController', ['only' => ['store', 'destroy']]);//留言

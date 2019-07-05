@@ -7,7 +7,7 @@ use App\Models\Category;
 class Topic extends Model
 {
     protected $fillable = [
-        'title', 'body', 'category_id', 'excerpt', 'slug'
+        'title', 'body', 'category_id', 'excerpt', 'slug','reply_count'
     ];
     public function category()
     {
