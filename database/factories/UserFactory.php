@@ -1,7 +1,9 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
+use App\Models\Replie;
 use App\Models\User;
+use App\Models\Topic;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
@@ -39,5 +41,21 @@ $factory->define(App\Models\Topic::class, function (Faker $faker) {
         'excerpt' => $faker->sentence(),
         'created_at' => $date_time,
         'updated_at' => $date_time,
+    ];
+});
+$factory->define(App\Models\Replie::class, function (Faker $faker) {
+    // 随机取一个月以内的时间
+    $time = $faker->dateTimeThisMonth();
+    // 所有用户 ID 数组，如：[1,2,3,4]
+    $user_ids = User::all()->pluck('id')->toArray();
+
+    // 所有话题 ID 数组，如：[1,2,3,4]
+    $topic_ids = Topic::all()->pluck('id')->toArray();
+    return [
+        'topic_id' => $topic_ids[mt_rand(0, count($topic_ids) - 1)],
+        'user_id' =>  $user_ids[mt_rand(0, count( $user_ids) - 1)],
+        'content' => $faker->sentence(),
+        'created_at' => $time,
+        'updated_at' => $time,
     ];
 });
