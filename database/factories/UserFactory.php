@@ -36,7 +36,7 @@ $factory->define(App\Models\Topic::class, function (Faker $faker) {
     return [
         'title' => $faker->sentence(),
         'body' => $faker->text(),
-        'user_id' => rand(1, 23),
+        'user_id' => rand(1, 20),
         'category_id' => rand(1, 4),
         'excerpt' => $faker->sentence(),
         'created_at' => $date_time,
